@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kabaddi</title>
+<style>
+.box {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+.button:hover {
+  background: #06D85F;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 50%;
+	font-size:36px;
+  overflow: auto;
+}
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+.button {
+    background-color: #4CAF50;
+	width:100%;
+	height:100%;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style>
+<script language="javascript">
+var araid=braid=abonus=bbonus=atackle=btackle=aallout=ballout=atechnical=btechnical= 0;
+	var a = prompt("Enter first team name");
+	var b = prompt("Enter second team name");
+function start(){
+	document.getElementById("kabaddi").rows[0].cells[0].innerHTML = a;
+	document.getElementById("id01").innerHTML = a +" Scores";
+	document.getElementById("kabaddi").rows[0].cells[1].innerHTML = b;
+	document.getElementById("id02").innerHTML = b +" Scores";
+}
+	
+function araidp(){ 
+	araid+=1;
+	document.getElementById("kabaddi").rows[1].cells[0].innerHTML=parseInt(document.getElementById("kabaddi").rows[1].cells[0].innerHTML)+1;
+}
+function braidp(){
+	braid+=1;
+	document.getElementById("kabaddi").rows[1].cells[1].innerHTML=parseInt(document.getElementById("kabaddi").rows[1].cells[1].innerHTML)+1;
+}
+function abonusp(){
+	abonus+=1;
+	document.getElementById("kabaddi").rows[1].cells[0].innerHTML=parseInt(document.getElementById("kabaddi").rows[1].cells[0].innerHTML)+1;
+}
+function bbonusp(){
+	bbonus+=1;
+	document.getElementById("kabaddi").rows[1].cells[1].innerHTML=parseInt(document.getElementById("kabaddi").rows[1].cells[1].innerHTML)+1;
+}
+function atacklep(){
+	atackle+=1;
+	document.getElementById("kabaddi").rows[1].cells[0].innerHTML=parseInt(document.getElementById("kabaddi").rows[1].cells[0].innerHTML)+1;
+}
+function btacklep(){
+	btackle+=1;
+	document.getElementById("kabaddi").rows[1].cells[1].innerHTML=parseInt(document.getElementById("kabaddi").rows[1].cells[1].innerHTML)+1;
+}
+function asupertacklep(){
+	atackle+=2;
+	document.getElementById("kabaddi").rows[1].cells[0].innerHTML=parseInt(document.getElementById("kabaddi").rows[1].cells[0].innerHTML)+2;
+}
+function bsupertacklep(){
+	btackle+=2;
+	document.getElementById("kabaddi").rows[1].cells[1].innerHTML=parseInt(document.getElementById("kabaddi").rows[1].cells[1].innerHTML)+2;
+}
+function aalloutp(){
+	aallout+=2;
+	document.getElementById("kabaddi").rows[1].cells[0].innerHTML=parseInt(document.getElementById("kabaddi").rows[1].cells[0].innerHTML)+2;
+}
+function balloutp(){
+	ballout+=2;
+	document.getElementById("kabaddi").rows[1].cells[1].innerHTML=parseInt(document.getElementById("kabaddi").rows[1].cells[1].innerHTML)+2;
+}
+function atechnicalp(){
+	atechnical+=1;
+	document.getElementById("kabaddi").rows[1].cells[0].innerHTML=parseInt(document.getElementById("kabaddi").rows[1].cells[0].innerHTML)+1;
+}
+function btechnicalp(){
+	btechnical+=1;
+	document.getElementById("kabaddi").rows[1].cells[1].innerHTML=parseInt(document.getElementById("kabaddi").rows[1].cells[1].innerHTML)+1;
+}
+function update(){
+	document.getElementById("ascore").rows[0].cells[1].innerHTML=araid;
+	document.getElementById("ascore").rows[1].cells[1].innerHTML=atackle;
+	document.getElementById("ascore").rows[2].cells[1].innerHTML=abonus;
+	document.getElementById("ascore").rows[3].cells[1].innerHTML=aallout;
+	document.getElementById("ascore").rows[4].cells[1].innerHTML=atechnical;
+	document.getElementById("ascore").rows[5].cells[1].innerHTML=document.getElementById("kabaddi").rows[1].cells[0].innerHTML;	
+	document.getElementById("bscore").rows[0].cells[1].innerHTML=braid;
+	document.getElementById("bscore").rows[1].cells[1].innerHTML=btackle;
+	document.getElementById("bscore").rows[2].cells[1].innerHTML=bbonus;
+	document.getElementById("bscore").rows[3].cells[1].innerHTML=ballout;
+	document.getElementById("bscore").rows[4].cells[1].innerHTML=btechnical;
+	document.getElementById("bscore").rows[5].cells[1].innerHTML=document.getElementById("kabaddi").rows[1].cells[1].innerHTML;
+}
+function finalscore1(){
+	if(parseInt(document.getElementById("kabaddi").rows[1].cells[0].innerHTML)>parseInt(document.getElementById("kabaddi").rows[1].cells[1].innerHTML)){
+		document.getElementById("ab").innerHTML= a+" won the match by "+ (parseInt(document.getElementById("kabaddi").rows[1].cells[0].innerHTML)-parseInt(document.getElementById("kabaddi").rows[1].cells[1].innerHTML))+" points";
+	}
+	else if(parseInt(document.getElementById("kabaddi").rows[1].cells[0].innerHTML)<parseInt(document.getElementById("kabaddi").rows[1].cells[1].innerHTML)){
+		document.getElementById("ab").innerHTML= b+" won the match by "+ (parseInt(document.getElementById("kabaddi").rows[1].cells[1].innerHTML)-parseInt(document.getElementById("kabaddi").rows[1].cells[0].innerHTML))+" points";
+	}
+	else{
+		document.getElementById("ab").innerHTML="Match Tied";
+	}
+}
+</script>	
+</head>
+<body onload="start()">
+<table><tr><td rowspan="2">
+	<h1 style="color:red"><center>Kabaddi Score Counter</center></h1>
+	<table border="1" cellpadding="5%" cellspacing="5%"  width="700px" id="kabaddi" name="kabaddi" style="table-layout:fixed;">
+		<tr height="50px" bgcolor="blue" style="color:white;font-size:28px"><b><td align="center" style="resize:none">Team A</td><td align="center" style="resize:none">Team B</td></b></tr>
+		<tr bgcolor="red" style="color:white;font-size:60px" align="center"><b><td>0</td><td>0</td></b></tr>
+		<tr align="center"><td><input type="button" class="button" name="araid" value="Raid Point" onclick="araidp();update()"></td><td><input type="button" class="button" name="braid" value="Raid Point" onclick="braidp();update()"></td></tr>
+		<tr align="center"><td><input type="button" class="button" name="abonus" value="Bonus Point" onclick="abonusp();update()"></td><td><input type="button" class="button" name="bbonus" value="Bonus Point" onclick="bbonusp();update()"></td></tr>
+		<tr align="center"><td><input type="button" class="button" name="atackle" value="Tackle Point" onclick="atacklep();update()"></td><td><input type="button" class="button" name="btackle" value="Tackle Point" onclick="btacklep();update()"></td></tr>
+		<tr align="center"><td><input type="button" class="button" name="asupertackle" value="Supertackle Point" onclick="asupertacklep();update()"></td><td><input type="button" class="button" name="asupertackle" value="Supertackle Point" onclick="bsupertacklep();update()"></td></tr>
+		<tr align="center"><td><input type="button" class="button" name="aallout" value="AllOut Point" onclick="aalloutp();update()"></td><td><input type="button" name="ballout" class="button" value="AllOut Point" onclick="balloutp();update()"></td></tr>
+		<tr align="center"><td><input type="button" class="button" name="atechnicalpoint" value="Technical Point" onclick="atechnicalp();update()"></td><td><input type="button" name="atechnicalpoint" class="button" value="Technical Point" onclick="btechnicalp();update()"></td></tr>
+		<tr align="center"><td colspan="2" align="center">
+		<div class="box">
+			<a class="button" href="#popup1" onclick="finalscore1()">View Final Score</a>
+		</div></td></tr>
+	</table>
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<a class="close" href="#">&times;</a>
+		<div class="content" id="ab">
+			a
+		</div>
+	</div>
+</div>
+</td>
+<td style="padding-left:30px">
+	<center><h2 style="background-color:red;color:white" id="id01">Team A Score:</h2></center>
+	<table border="2" cellpadding="5%" cellspacing="5%" width="600px" id="ascore">
+		<tr style="color:black;font-size:22px"><td>Raid Points</td><td align="center">0</td></tr> 
+		<tr style="color:black;font-size:22px"><td>Tackle Points</td><td align="center">0</td></tr>
+		<tr style="color:black;font-size:22px"><td>Bonus Points</td><td align="center">0</td></tr>
+		<tr style="color:black;font-size:22px"><td>AllOut Points</td><td align="center">0</td></tr>
+		<tr style="color:black;font-size:22px"><td>Technical Points</td><td align="center">0</td></tr>
+		<tr style="color:black;font-size:22px"><td bgcolor="lightgreen">Total Points</td><td bgcolor="lightgreen" align="center">0</td></tr>
+	</table>
+</td>
+</tr>
+<tr>
+<td style="padding-left:30px">
+	<center><h2 style="background-color:red;color:white" id="id02">Team B Score: </h2></center>
+	<table border="2" cellpadding="5%" cellspacing="5%" width="600px" id="bscore">
+		<tr style="color:black;font-size:22px"><td>Raid Points</td><td align="center">0</td></tr> 
+		<tr style="color:black;font-size:22px"><td>Tackle Points</td><td align="center">0</td></tr>
+		<tr style="color:black;font-size:22px"><td>Bonus Points</td><td align="center">0</td></tr>
+		<tr style="color:black;font-size:22px"><td>AllOut Points</td><td align="center">0</td></tr>
+		<tr style="color:black;font-size:22px"><td>Technical Points</td><td align="center">0</td></tr>
+		<tr style="color:black;font-size:22px"><td bgcolor="lightgreen">Total Points</td><td bgcolor="lightgreen" align="center">0</td></tr>
+</td>
+</tr>
+</table>
+</body>
+</html>
